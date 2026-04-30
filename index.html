@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVC League Dashboard</title>
+    <link rel="stylesheet" href="hk.css">
+</head>
+<body>
+
+<header>
+    <h1>⚽ CVC LEAGUE DASHBOARD</h1>
+    <div class="ticker-wrap">
+        <div class="ticker" id="transferTicker">
+            🚀 TRANSFER NEWS: Raphael linked with Team 5! | Smith signs contract extension | Mayor seen training alone...
+        </div>
+    </div>
+</header>
+
+<!-- Inside <main>, above the League Table section -->
+<section id="fixtures-section">
+    <h2>Weekly Fixtures</h2>
+    <div id="weekSelector" style="margin-bottom: 10px;">
+        <label>Select Week: </label>
+        <select id="weekDropdown" onchange="renderFixtures(this.value)">
+            <!-- JavaScript will populate Weeks 1-9 -->
+        </select>
+    </div>
+    <div id="fixtureList"></div>
+</section>
+
+<!-- Updated Table Section -->
+<section id="league-section">
+    <h2>League Table</h2>
+    <table id="leagueTable">
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th>Team</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>GF</th>
+                <th>GA</th>
+                <th>GD</th>
+                <th>PTS</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+</section>
+           <!-- Inside <main>, above or below the Fixtures Section -->
+<section id="input-section">
+    <h2>Update Match Score</h2>
+    <div class="score-form">
+        <select id="matchSelect">
+            <!-- Populated based on selected week -->
+        </select>
+        <input type="number" id="score1" placeholder="Score 1" min="0">
+        <span> vs </span>
+        <input type="number" id="score2" placeholder="Score 2" min="0">
+        <button class="btn" onclick="saveScore()">Update Table</button>
+        <!-- Place this near your "Update Table" button -->
+        <button class="btn reset-btn" onclick="resetLeague()">Reset Entire League</button>
+    </div>
+        </section>
+
+        <section id="playoff-section" style="display:none;">
+            <h2>🏆 Quarter-Finals (Top 8)</h2>
+            <div id="bracket" class="bracket-container"></div>
+        </section>
+
+        <section id="rosters-section">
+            <h2>Team Rosters</h2>
+            <div class="team-grid" id="teamRosters"></div>
+        </section>
+    </main>
+
+    <aside>
+        <section class="sidebar-box">
+            <h2>Rules & Format</h2>
+            <ul class="rules-list">
+                <li>10 Teams | 9 Game Weeks</li>
+                <li>3pts for Win | 1pt for Draw</li>
+                <li><b>Relegation:</b> Bottom 2 (9th & 10th) are relegated.</li>
+                <li><b>Playoffs:</b> Top 8 enter Quarter-Finals.</li>
+            </ul>
+        </section>
+
+   <section class="leaderboard-card">
+    <h2 class="leaderboard-title">🏆 GOLDEN BOOT</h2>
+    <!-- This div will now be scrollable -->
+    <div class="stat-container" id="topScorersList"></div>
+
+    <h2 class="leaderboard-title" style="margin-top: 20px;">🎯 ASSIST KINGS</h2>
+    <!-- This div will now be scrollable -->
+    <div class="stat-container" id="topAssistsList"></div>
+</section>
+</section>
+    </aside>
+</div>
+
+<script src="hk.js"></script>
+</body>
+</html>
