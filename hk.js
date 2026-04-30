@@ -201,3 +201,17 @@ function updateLeaderboards() {
 
 // Call this inside your window.onload and saveScore functions
 updateLeaderboards();
+
+function checkAdmin() {
+    const password = prompt("Enter Admin Password to unlock controls:");
+    
+    // Change 'CVC2026' to your preferred secret password
+    if (password === "CVC2026") {
+        document.getElementById('adminControls').style.display = 'block';
+        alert("Admin Access Granted. Controls Unlocked.");
+        // Scroll to the controls
+        document.getElementById('adminControls').scrollIntoView({ behavior: 'smooth' });
+    } else {
+        alert("Incorrect password. Access denied.");
+    }
+}

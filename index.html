@@ -50,21 +50,6 @@
         <tbody id="tableBody"></tbody>
     </table>
 </section>
-           <!-- Inside <main>, above or below the Fixtures Section -->
-<section id="input-section">
-    <h2>Update Match Score</h2>
-    <div class="score-form">
-        <select id="matchSelect">
-            <!-- Populated based on selected week -->
-        </select>
-        <input type="number" id="score1" placeholder="Score 1" min="0">
-        <span> vs </span>
-        <input type="number" id="score2" placeholder="Score 2" min="0">
-        <button class="btn" onclick="saveScore()">Update Table</button>
-        <!-- Place this near your "Update Table" button -->
-        <button class="btn reset-btn" onclick="resetLeague()">Reset Entire League</button>
-    </div>
-        </section>
 
         <section id="playoff-section" style="display:none;">
             <h2>🏆 Quarter-Finals (Top 8)</h2>
@@ -102,5 +87,25 @@
 </div>
 
 <script src="hk.js"></script>
+
+<!-- Wrap your existing update sections in this div -->
+<div id="adminControls" style="display: none;">
+    <section id="input-section">
+        <h2>Update Match Score</h2>
+        <div class="score-form">
+            <select id="matchSelect"></select>
+            <input type="number" id="score1" placeholder="Score 1">
+            <span> vs </span>
+            <input type="number" id="score2" placeholder="Score 2">
+            <button class="btn" onclick="saveScore()">Update Table</button>
+            <button class="btn reset-btn" onclick="resetLeague()">Reset Entire League</button>
+        </div>
+    </section>
+</div>
+
+<!-- Add this at the very bottom of your body -->
+<footer style="text-align: center; margin-top: 50px; opacity: 0.5;">
+    <button onclick="checkAdmin()" style="background: transparent; border: none; color: gray; cursor: pointer;">Admin Login</button>
+</footer>
 </body>
 </html>
