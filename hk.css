@@ -174,3 +174,53 @@ select {
 .stat-container::-webkit-scrollbar-thumb:hover {
     background: #ff5e78; /* Slightly brighter on hover */
 }
+
+.potw-card {
+    background: linear-gradient(135deg, var(--accent) 0%, #8a1d30 100%);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* The Glow Effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.6);
+    animation: pulseGlow 2s infinite alternate;
+}
+
+/* Keyframes for the pulsing animation */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(233, 69, 96, 0.4), 0 0 20px rgba(233, 69, 96, 0.2);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(233, 69, 96, 0.8), 0 0 40px rgba(233, 69, 96, 0.4);
+        transform: scale(1.01); /* Very slight grow effect */
+    }
+}
+
+.potw-icon {
+    font-size: 3.5rem;
+    /* Makes the trophy icon itself glow slightly */
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+}
+
+#displayPotwName {
+    background: linear-gradient(to right, #fff 20%, #ffd700 40%, #ffd700 60%, #fff 80%);
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShine 3s linear infinite;
+}
+
+@keyframes textShine {
+    to {
+        background-position: 200% center;
+    }
+}
+

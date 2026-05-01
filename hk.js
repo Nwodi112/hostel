@@ -15,6 +15,43 @@ let teams = JSON.parse(localStorage.getItem('cvcTeams')) || [
 let playedMatches = new Set(JSON.parse(localStorage.getItem('cvcPlayed')) || []);
 let fixtures = [];
 
+// Add these to your window.onload function or at the top of the script
+let currentPotw = JSON.parse(localStorage.getItem('cvcPotw')) || { name: "TBD", team: "Calculating..." };
+
+function displayPotw() {
+    document.getElementById('displayPotwName').innerText = currentPotw.name;
+    document.getElementById('displayPotwTeam').innerText = currentPotw.team;
+}
+
+function updatePotw() {
+    const newName = document.getElementById('inputPotwName').value;
+    const newTeam = document.getElementById('inputPotwTeam').value;
+
+    if (!newName || !newTeam) {
+        alert("Please enter both Name and Team!");
+        return;
+    }
+
+    currentPotw = { name: newName, team: newTeam };
+    
+    // Save to browser memory
+    localStorage.setItem('cvcPotw', JSON.stringify(currentPotw));
+    
+    // Update the UI
+    displayPotw();
+    
+    // Clear Admin inputs
+    document.getElementById('inputPotwName').value = '';
+    document.getElementById('inputPotwTeam').value = '';
+    alert("Player of the Week updated!");
+}
+
+// Call displayPotw() inside your existing window.onload
+window.onload = () => {
+    // ... your existing init code ...
+    displayPotw();
+};
+
 // 2. GENERATE FIXTURES (Round Robin)
 function generateFixtures() {
     const numTeams = 10;
@@ -215,3 +252,4 @@ function checkAdmin() {
         alert("Incorrect password. Access denied.");
     }
 }
+

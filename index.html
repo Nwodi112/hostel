@@ -17,6 +17,20 @@
     </div>
 </header>
 
+<!-- Player of the Week Section -->
+<section id="potw-section">
+    <div class="potw-card">
+        <div class="potw-info">
+            <span class="potw-label">⭐ PLAYER OF THE WEEK</span>
+            <h2 id="displayPotwName">Nominate Player...</h2>
+            <p id="displayPotwTeam">Team --</p>
+        </div>
+        <div class="potw-icon">🏆</div>
+    </div>
+</section>
+
+<!-- Existing Weekly Fixtures Section follows here... -->
+
 <!-- Inside <main>, above the League Table section -->
 <section id="fixtures-section">
     <h2>Weekly Fixtures</h2>
@@ -100,8 +114,18 @@
             <button class="btn" onclick="saveScore()">Update Table</button>
             <button class="btn reset-btn" onclick="resetLeague()">Reset Entire League</button>
         </div>
+        <!-- Inside your <div id="adminControls"> -->
+<section style="margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+    <h3>Set Player of the Week</h3>
+    <div class="score-form">
+        <input type="text" id="inputPotwName" placeholder="Player Name">
+        <input type="text" id="inputPotwTeam" placeholder="Team Name">
+        <button class="btn" onclick="updatePotw()">Update Star</button>
+    </div>
+</section>
     </section>
 </div>
+
 
 <!-- Add this at the very bottom of your body -->
 <footer style="text-align: center; margin-top: 50px; opacity: 0.5;">
